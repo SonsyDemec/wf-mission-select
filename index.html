@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Warframe Mission Selector</title>
+</head>
+
+
+
+
+<body>
+<h3 align="middle">Warframe Mission Selector</h3>
+
+<form>
+	<h1 id="mission" align="middle"> </h1>
+	<p align="middle"><input type="button" value="New mission" onclick="getMission
+
+();"></p>
+	
+</form>
+
+<script type="text/javascript">
+
+var planet = []
+
+planet.push({name:"Mercury", mission:["Apolloduros", "Boethius", "Caloris", "Elion", 
+
+"Eminescu", "Lares", "M Prime", "Neruda", "Odin", "Pantheon", "Suisei", "Terminus", 
+
+"Verdi", "Tolstoj"]})
+
+planet.push({name:"Earth", mission:["Cambria", "E Prime", "Eurasia", "Everest", "Gaia", 
+
+"Lith", "Lua", "Mantle", "Mariana", "Pacific", "Plato", "Tycho", "Grimaldi", "Coba", 
+
+"Tikal", "Oro"]})
+
+planet.push({name:"Venus", mission:["Aphrodite", "Cytheran", "E Gate", "Ishtar", 
+
+"Kiliken", "Linea", "Tessera", "Unda", "Venera", "Vesper", "V Prime", "Romula", "Malva", 
+
+"Fossa"]})
+
+planet.push({name:"Mars", mission:["Alator", "Ara", "Arcadia", "Ares", "Arval", 
+
+"Augustus", "Gradivus", "Hellas", "Martialis", "Olympus", "Quirinus", "Silvanus", "Spear", 
+
+"Tharsis", "Ultor", "Vallis", "Wahiba", "Kadesh", "War"]})
+
+planet.push({name:"Jupiter", mission:["Adrastea", "Amalthea", "Ananke", "Callisto", 
+
+"Carme", "Carpo", "Elara", "Ganymede", "Io", "Metis", "Thebe", "Cameria", "Sinai", 
+
+"Themisto"]})
+
+planet.push({name:"Saturn", mission:["Aegaeon", "Anthe", "Calypso", "Cassini", "Dione", 
+
+"Enceladus", "Epimetheus", "Helene", "Hyperion", "Iapetus", "Janus", "Keeler", "Methone", 
+
+"Mimas", "Numa", "Pallene", "Phoebe", "Rhea", "Telesto", "Titan", "Piscinas", "Caracol", 
+
+"Tethys"]})
+
+planet.push({name:"Sedna", mission:["Adaro", "Berehynia", "Camanae", "Charybdis", 
+
+"Graeae", "Hydron", "Hyosube", "Jengu", "Kappa", "Kelpie", "Marid", "Naga", "Nakki", 
+
+"Phithale", "Ponaturi", "Rusalka", "Scylla", "Selkie", "Tiamat", "Tikoloshe", "Undine", 
+
+"Veles", "Vodyanoi", "Yam", "Yemaja", "Amarna", "Sangeru", "Merrow"]})
+
+planet.push({name:"Phobos", mission:["Clustril", "D'Arrest", "Drunlo", "Flimnap", 
+
+"Grildrig", "Gulliver", "Hall", "Kepler", "Limtoc", "Monolith", "Opik", "Reldresal", 
+
+"Roche", "Sharpless", "Shklovsky", "Skyresh", "Stickney", "Todd", "Wendell", "Zeugma", 
+
+"Memphis", "Iliad"]})
+
+planet.push({name:"Uranus", mission:["Ariel", "Bianca", "Caliban", "Cordelia", "Cressida", 
+
+"Cupid", "Desdemona", "Juliet", "Mab", "Miranda", "Oberon", "Ophelia", "Perdita", 
+
+"Portia", "Prospero", "Puck", "Rosalind", "Setebos", "Stephano", "Sycorax", "Trinculo", 
+
+"Umbriel", "Assur", "Ur", "Titania"]})
+
+planet.push({name:"Europa", mission:["Abaddon", "Armaros", "Baal", "Beleth", "Eligor", 
+
+"Gamygyn", "Kobabiel", "Lillith", "Morax", "Orias", "Ose", "Paimon", "Shax", "Sorath", 
+
+"Valac", "Valefor", "Zagan", "Cholistan", "Larzac", "Naamah"]})
+
+planet.push({name:"Eris", mission:["Acanth", "Ascar", "Brugia", "Candiru", "Cosis", 
+
+"Cyath", "Giardia", "Gnathos", "Histo", "Hymeno", "Isos", "Ixodes", "Kala-azar", "Lepis", 
+
+"Naeglar", "Nimus", "Oestrus", "Phalan", "Psoro", "Ranova", "Saxis", "Solium", "Sparga", 
+
+"Sporid", "Viver", "Xini", "Zabala", "Akkad"]})
+
+planet.push({name:"Neptune", mission:["Despina", "Galatea", "Halimede", "Laomedeia", 
+
+"Larissa", "Naiad", "Nereid", "Neso", "Proteus", "Sao", "Thalassa", "Triton", "Kelashin", 
+
+"Yursa", "Psamathe"]})
+
+planet.push({name:"Ceres", mission:["Albedo", "Bode", "Casta", "Cerium", "Cinxia", 
+
+"Draco", "Egeria", "Gefion", "Hapke", "Ker", "Kiste", "Lex", "Ludi", "Nuovo", "Olla", 
+
+"Pallas", "Thon", "Varro", "Vedic", "Gabii", "Seimeni", "Exta"]})
+
+planet.push({name:"Pluto", mission:["Acheron", "Cerberus", "Charon", "Cypress", "Hydra", 
+
+"Minthe", "Narcissus", "Nix", "Oceanum", "Outer Terminus", "Palus", "Regna", "Hieracon", 
+
+"Sechura", "Hades"]})
+
+
+var planet_mission = []
+
+for (i = 0; i < planet.length; i++) {
+	for (j = 0; j < planet[i].mission.length; j++) {
+		planet_mission.push(planet[i].name + " - " + planet[i].mission[j])
+	}
+}
+
+function getMission() {	
+	document.getElementById("mission").innerHTML = planet_mission[Math.floor
+
+(Math.random() * planet_mission.length)];
+}
+
+getMission();
+
+</script>
+</body>
+
+</html>
