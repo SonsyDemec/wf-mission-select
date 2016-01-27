@@ -127,10 +127,16 @@ for (i = 0; i < planet.length; i++) {
 	}
 }
 
-function getMission() {	
-	document.getElementById("mission").innerHTML = planet_mission[Math.floor
+function getMission() {
+	if (planet_mission.length > 0) {
+		m = Math.floor(Math.random() * planet_mission.length)
+		document.getElementById("mission").innerHTML = planet_mission[m] + " (" + 
 
-(Math.random() * planet_mission.length)];
+planet_mission.length + ")";
+		planet_mission.splice(m, 1)
+	} else {
+		location.reload();
+	}
 }
 
 getMission();
